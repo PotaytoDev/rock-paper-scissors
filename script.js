@@ -1,9 +1,4 @@
 /**
- * function computerPlay()
- *     Generate randomNumber in the range of 0-2;
- *     Use randomNumber to determine the selection of the computer;
- *     Return string containing either "rock", "paper", or "scissors";
- * 
  * function playRound(playerSelection, computerSelection, playerScore, computerScore)
  *     Call compareSelections() to determine the winner and store in roundResult;
  *     if (roundResult === "win")
@@ -68,3 +63,27 @@
  *     game();
  * while (confirm("Play again?"));
 */
+
+
+
+
+function computerPlay()
+{
+    let randomNumber = Math.floor(Math.random() * 3);
+    let computerSelection = "";
+
+    if (randomNumber === 0)
+    {
+        computerSelection = "rock";
+    }
+    else if (randomNumber === 1)
+    {
+        computerSelection = "paper";
+    }
+    else
+    {
+        computerSelection = "scissors";
+    }
+
+    return computerSelection;
+}
