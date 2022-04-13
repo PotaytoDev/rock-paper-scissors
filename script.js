@@ -33,23 +33,6 @@
  *             Repeat same logic for the cases with the other selections;
  *     Return "win", "lose", or "draw" based on whether player beat computer;
  * 
- * function validatePlayerSelection(playerSelection)
- *     Return true only if playerSelection equals "rock", "paper", or "scissors";
- *     Return false for any other input;
- * 
- * function getPlayerSelection()
- *     do
- *         Prompt player for their selection and store in playerSelection;
- *         playerSelection must be case-insensitive;
- *             Use method .toLowerCase() on playerSelection to convert it to all lowercase
- *             letters;
- *         Validate input with validatePlayerSelection() and store in validSelection;
- *             if (!validSelection)
- *                 Output "Please enter a selection of either rock, paper, or scissors.";
- *     while (input is not valid);
- * 
- *     Return playerSelection with all lowercase letters;
- * 
  * function determineGameResult(playerScore, computerScore)
  *     if (playerScore > computerScore)
  *         gameResult = "You win the game!";
@@ -86,4 +69,30 @@ function computerPlay()
     }
 
     return computerSelection;
+}
+
+function getPlayerSelection()
+{
+    let validSelection = false;
+    let playerSelection = "";
+
+    do
+    {
+        playerSelection = prompt("Rock, paper, or scissors?");
+        playerSelection = playerSelection.toLowerCase();
+        validSelection = validatePlayerSelection(playerSelection);
+        if (!validSelection)
+        {
+            alert("That is not a valid selection. Please choose either rock, paper, or scissors");
+        }
+    }
+    while (!validSelection);
+
+    return playerSelection;
+}
+
+function validatePlayerSelection(playerSelection)
+{
+    return (playerSelection === "rock" || playerSelection === "paper" ||
+    playerSelection === "scissors");
 }
