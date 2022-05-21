@@ -59,6 +59,8 @@ function compareSelections(playerSelection, computerSelection)
 function playRound(playerSelection)
 {
     let computerSelection = computerPlay();
+    let playerScore = Number(document.querySelector('#player-score').textContent);
+    let computerScore = Number(document.querySelector('#computer-score').textContent);
 
     console.log(`You chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`);
@@ -69,18 +71,20 @@ function playRound(playerSelection)
     {
         console.log(`You win! ${playerSelection.charAt(0).toUpperCase() + 
             playerSelection.substring(1)} beats ${computerSelection}`);
+        
+        document.querySelector('#player-score').textContent = ++playerScore;
     }
     else if (roundResult === "lose")
     {
         console.log(`You lose! ${computerSelection.charAt(0).toUpperCase() + 
             computerSelection.substring(1)} beats ${playerSelection}`);
+
+        document.querySelector('#computer-score').textContent = ++computerScore;
     }
     else
     {
         console.log(`Draw! You both chose ${playerSelection}`);
     }
-
-    return roundResult;
 }
 
 function determineGameResult(playerScore, computerScore)
@@ -105,23 +109,7 @@ function determineGameResult(playerScore, computerScore)
 
 function playGame()
 {
-    let playerScore = 0;
-    let computerScore = 0;
-    // let roundResult = playRound();
-
     AddBehaviorToButtons();
-
-    // if (roundResult === "win")
-    // {
-    //     playerScore++;
-    // }
-    // else if (roundResult === "lose")
-    // {
-    //     computerScore++;
-    // }
-
-    // document.querySelector('#player-score').textContent = playerScore;
-    // document.querySelector('#computer-score').textContent = computerScore;
 }
 
 function AddBehaviorToButtons()
