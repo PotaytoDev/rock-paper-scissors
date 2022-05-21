@@ -8,6 +8,8 @@ body {
   background-color: #F3E5DF;
 }
 
+/* Scores Section */
+
 .scores {
   /* border: 2px solid black; */
   font-size: 32px;
@@ -27,6 +29,8 @@ p {
   /* border: 2px solid blue; */
   margin: 0;
 }
+
+/* Selection section */
 
 #selection-section {
   display: flex;
@@ -48,4 +52,19 @@ p {
 .selections:hover,
 .selections:active {
   background-color: #8A977E;
+}
+
+/* Results section */
+
+#results-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.results {
+  font-size: 32px;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
