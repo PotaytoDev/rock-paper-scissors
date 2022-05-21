@@ -149,7 +149,8 @@ function playGame()
             computerScore++;
         }
 
-        console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`);
+        document.querySelector('#player-score').textContent = playerScore;
+        document.querySelector('#computer-score').textContent = computerScore;
     }
 
     console.log(determineGameResult(playerScore, computerScore));
