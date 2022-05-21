@@ -19,32 +19,6 @@ function computerPlay()
     return computerSelection;
 }
 
-function getPlayerSelection()
-{
-    let validSelection = false;
-    let playerSelection = "";
-
-    do
-    {
-        playerSelection = prompt("Rock, paper, or scissors?");
-        playerSelection = playerSelection.toLowerCase();
-        validSelection = validatePlayerSelection(playerSelection);
-        if (!validSelection)
-        {
-            alert("That is not a valid selection. Please choose either rock, paper, or scissors");
-        }
-    }
-    while (!validSelection);
-
-    return playerSelection;
-}
-
-function validatePlayerSelection(playerSelection)
-{
-    return (playerSelection === "rock" || playerSelection === "paper" ||
-    playerSelection === "scissors");
-}
-
 function compareSelections(playerSelection, computerSelection)
 {
     let roundResult = "";
@@ -82,10 +56,9 @@ function compareSelections(playerSelection, computerSelection)
     return roundResult;
 }
 
-function playRound()
+function playRound(playerSelection)
 {
     let computerSelection = computerPlay();
-    let playerSelection = getPlayerSelection();
 
     console.log(`You chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`);
@@ -134,31 +107,30 @@ function playGame()
 {
     let playerScore = 0;
     let computerScore = 0;
-    let roundResult = playRound();
+    // let roundResult = playRound();
 
-    if (roundResult === "win")
-    {
-        playerScore++;
-    }
-    else if (roundResult === "lose")
-    {
-        computerScore++;
-    }
+    AddBehaviorToButtons();
 
-    document.querySelector('#player-score').textContent = playerScore;
-    document.querySelector('#computer-score').textContent = computerScore;
+    // if (roundResult === "win")
+    // {
+    //     playerScore++;
+    // }
+    // else if (roundResult === "lose")
+    // {
+    //     computerScore++;
+    // }
 
-    console.log(determineGameResult(playerScore, computerScore));
+    // document.querySelector('#player-score').textContent = playerScore;
+    // document.querySelector('#computer-score').textContent = computerScore;
 }
 
-function game()
+function AddBehaviorToButtons()
 {
-    do
-    {
-        playGame();
-    } while (confirm("Play again?"));
+    const buttons = document.querySelectorAll('.selections');
 
-    console.log("Game Over");
+    buttons.forEach((button) => button.addEventListener('click', () => {
+        playRound(button.textContent.toLowerCase());
+    }))
 }
 
-game();
+playGame();
