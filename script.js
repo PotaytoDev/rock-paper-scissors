@@ -134,24 +134,19 @@ function playGame()
 {
     let playerScore = 0;
     let computerScore = 0;
+    let roundResult = playRound();
 
-    for (let numberOfRounds = 1; numberOfRounds <= 5; numberOfRounds++)
+    if (roundResult === "win")
     {
-        console.log(`Round: ${numberOfRounds}`);
-        let roundResult = playRound();
-
-        if (roundResult === "win")
-        {
-            playerScore++;
-        }
-        else if (roundResult === "lose")
-        {
-            computerScore++;
-        }
-
-        document.querySelector('#player-score').textContent = playerScore;
-        document.querySelector('#computer-score').textContent = computerScore;
+        playerScore++;
     }
+    else if (roundResult === "lose")
+    {
+        computerScore++;
+    }
+
+    document.querySelector('#player-score').textContent = playerScore;
+    document.querySelector('#computer-score').textContent = computerScore;
 
     console.log(determineGameResult(playerScore, computerScore));
 }
