@@ -77,3 +77,15 @@ p {
   justify-content: center;
   margin: 48px 0;
 }
+
+/* Game results section */
+
+#game-results-section {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#game-results-container {
+  margin-top: 100px;
+}
