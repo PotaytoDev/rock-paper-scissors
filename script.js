@@ -67,6 +67,7 @@ function playRound(playerSelection)
     let computerSelection = computerPlay();
     let playerScore = Number(document.querySelector('#player-score').textContent);
     let computerScore = Number(document.querySelector('#computer-score').textContent);
+    const results = document.querySelector('#results');
 
     displaySelections(playerSelection, computerSelection);
 
@@ -74,21 +75,21 @@ function playRound(playerSelection)
 
     if (roundResult === "win")
     {
-        console.log(`You win! ${playerSelection.charAt(0).toUpperCase() + 
-            playerSelection.substring(1)} beats ${computerSelection}`);
+        results.textContent = `You win! ${playerSelection.charAt(0).toUpperCase() +
+                playerSelection.substring(1)} beats ${computerSelection}`
         
         document.querySelector('#player-score').textContent = ++playerScore;
     }
     else if (roundResult === "lose")
     {
-        console.log(`You lose! ${computerSelection.charAt(0).toUpperCase() + 
-            computerSelection.substring(1)} beats ${playerSelection}`);
+        results.textContent = `You lose! ${computerSelection.charAt(0).toUpperCase() + 
+                computerSelection.substring(1)} beats ${playerSelection}`;
 
         document.querySelector('#computer-score').textContent = ++computerScore;
     }
     else
     {
-        console.log(`Draw! You both chose ${playerSelection}`);
+        results.textContent = `Draw! You both chose ${playerSelection}`;
     }
 }
 
