@@ -68,6 +68,7 @@ function playRound(playerSelection)
     const playerScore = document.querySelector('#player-score');
     const computerScore = document.querySelector('#computer-score');
     const results = document.querySelector('#results');
+    const gameResult = document.querySelector('#game-results');
 
     displaySelections(playerSelection, computerSelection);
 
@@ -90,6 +91,15 @@ function playRound(playerSelection)
     else
     {
         results.textContent = `Draw! You both chose ${playerSelection}`;
+    }
+
+    if (Number(playerScore.textContent) >= 5 || Number(computerScore.textContent) >= 5)
+    {
+        const buttons = document.querySelectorAll('.selections');
+        buttons.forEach(button => button.disabled = true);
+
+        gameResult.textContent = determineGameResult(Number(playerScore.textContent), 
+            Number(computerScore.textContent));
     }
 }
 
