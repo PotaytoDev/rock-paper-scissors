@@ -30,9 +30,9 @@ p {
   margin: 0;
 }
 
-/* Selection section */
+/* Selections section */
 
-#selection-section {
+#selections-section {
   display: flex;
   justify-content: center;
   gap: 100px;
@@ -54,14 +54,14 @@ p {
   background-color: #8A977E;
 }
 
-/* Results section */
+/* Display selections section */
 
-#results-section {
+#display-selections-section {
   display: flex;
   justify-content: space-between;
 }
 
-.results {
+.display-selection {
   font-size: 32px;
   margin: 16px;
   display: flex;
