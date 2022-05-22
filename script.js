@@ -56,14 +56,19 @@ function compareSelections(playerSelection, computerSelection)
     return roundResult;
 }
 
+function displaySelections(playerSelection, computerSelection)
+{
+    document.querySelector('#player-selection').textContent = playerSelection;
+    document.querySelector('#computer-selection').textContent = computerSelection;
+}
+
 function playRound(playerSelection)
 {
     let computerSelection = computerPlay();
     let playerScore = Number(document.querySelector('#player-score').textContent);
     let computerScore = Number(document.querySelector('#computer-score').textContent);
 
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
+    displaySelections(playerSelection, computerSelection);
 
     let roundResult = compareSelections(playerSelection, computerSelection);
 
