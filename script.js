@@ -64,28 +64,28 @@ function displaySelections(playerSelection, computerSelection)
 
 function playRound(playerSelection)
 {
-    let computerSelection = computerPlay();
-    let playerScore = Number(document.querySelector('#player-score').textContent);
-    let computerScore = Number(document.querySelector('#computer-score').textContent);
+    const computerSelection = computerPlay();
+    const playerScore = document.querySelector('#player-score');
+    const computerScore = document.querySelector('#computer-score');
     const results = document.querySelector('#results');
 
     displaySelections(playerSelection, computerSelection);
 
-    let roundResult = compareSelections(playerSelection, computerSelection);
+    const roundResult = compareSelections(playerSelection, computerSelection);
 
     if (roundResult === "win")
     {
         results.textContent = `You win! ${playerSelection.charAt(0).toUpperCase() +
                 playerSelection.substring(1)} beats ${computerSelection}`
         
-        document.querySelector('#player-score').textContent = ++playerScore;
+        playerScore.textContent = Number(playerScore.textContent) + 1;
     }
     else if (roundResult === "lose")
     {
         results.textContent = `You lose! ${computerSelection.charAt(0).toUpperCase() + 
                 computerSelection.substring(1)} beats ${playerSelection}`;
 
-        document.querySelector('#computer-score').textContent = ++computerScore;
+        computerScore.textContent = Number(computerScore.textContent) + 1;
     }
     else
     {
