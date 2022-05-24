@@ -58,8 +58,10 @@ function compareSelections(playerSelection, computerSelection)
 
 function displaySelections(playerSelection, computerSelection)
 {
-    document.querySelector('#player-selection').textContent = playerSelection;
-    document.querySelector('#computer-selection').textContent = computerSelection;
+    document.querySelector('#player-selection').textContent = 
+            playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)
+    document.querySelector('#computer-selection').textContent = 
+            computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)
 }
 
 function playRound(playerSelection)
@@ -93,6 +95,7 @@ function playRound(playerSelection)
         results.textContent = `Draw! You both chose ${playerSelection}`;
     }
 
+    // End the game and disable buttons after a player reaches 5 points
     if (Number(playerScore.textContent) >= 5 || Number(computerScore.textContent) >= 5)
     {
         const buttons = document.querySelectorAll('.selections');

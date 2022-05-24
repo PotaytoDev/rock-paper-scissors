@@ -7,41 +7,44 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div id="scores-section">
+  <div id="names-section" class="sections">
+    <div id="player-name" class="names">Player</div>
+    <div id="computer-name" class="names">Computer</div>
+  </div>
+  
+  <div id="scores-section" class="sections">
     <div id="player-score-container" class="scores">
-      <p>Player Score</p>
+      <p>Score</p>
       <p id="player-score">0</p>
     </div>
     <div id="computer-score-container" class="scores">
-      <p>Computer Score</p>
+      <p>Score</p>
       <p id="computer-score">0</p>
     </div>
   </div>
 
-  <div id="display-selections-section">
+  <div id="display-selections-section" class="sections">
     <div id="player-selection-container" class="display-selection">
-      <p>Player chose</p>
       <p id="player-selection">rock</p>
     </div>
     <div id="computer-selection-container" class="display-selection">
-      <p>Computer chose</p>
       <p id="computer-selection">rock</p>
     </div>
   </div>
 
-  <div id="results-section">
+  <div id="results-section" class="sections">
     <div id="results-container">
       <p id="results">Results</p>
     </div>
   </div>
 
-  <div id="selections-section">
+  <div id="selections-section" class="sections">
     <button id="rock" class="selections">Rock</button>
     <button id="paper" class="selections">Paper</button>
     <button id="scissors" class="selections">Scissors</button>
   </div>
 
-  <div id="game-results-section">
+  <div id="game-results-section" class="sections">
     <div id="game-results-container">
       <p id="game-results">Game Over!</p>
     </div>
