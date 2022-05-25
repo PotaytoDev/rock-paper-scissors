@@ -113,10 +113,12 @@ function determineGameResult(playerScore, computerScore)
     if (playerScore > computerScore)
     {
         gameResult = `You win the game! Final score is ${playerScore} to ${computerScore}`;
+        document.querySelector('#game-results').classList.toggle('win');
     }
     else if (playerScore < computerScore)
     {
         gameResult = `You lose the game! Final score is ${playerScore} to ${computerScore}`;
+        document.querySelector('#game-results').classList.toggle('lose');
     }
     else
     {

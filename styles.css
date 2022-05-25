@@ -116,3 +116,11 @@ p {
   justify-content: center;
   margin-top: 24px;
 }
+
+.win {
+  color: #009175;
+}
+
+.lose {
+  color: #C4515C;
+}
