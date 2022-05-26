@@ -56,11 +56,19 @@ function compareSelections(playerSelection, computerSelection)
     return roundResult;
 }
 
-function displaySelections(playerSelection, computerSelection)
+function displaySelections(playerSelection, computerSelection, playerSelectionElement, computerSelectionElement)
 {
-    document.querySelector('#player-selection').textContent = 
+    // Remove any of the classes, if present
+    playerSelectionElement.classList.remove('win');
+    computerSelectionElement.classList.remove('win');
+    playerSelectionElement.classList.remove('lose');
+    computerSelectionElement.classList.remove('lose');
+    playerSelectionElement.classList.remove('draw');
+    computerSelectionElement.classList.remove('draw');
+
+    playerSelectionElement.textContent = 
             playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1)
-    document.querySelector('#computer-selection').textContent = 
+    computerSelectionElement.textContent = 
             computerSelection.charAt(0).toUpperCase() + computerSelection.substring(1)
 }
 
@@ -71,8 +79,10 @@ function playRound(playerSelection)
     const computerScore = document.querySelector('#computer-score');
     const results = document.querySelector('#results');
     const gameResult = document.querySelector('#game-results');
+    const playerSelectionElement = document.querySelector('#player-selection');
+    const computerSelectionElement = document.querySelector('#computer-selection');
 
-    displaySelections(playerSelection, computerSelection);
+    displaySelections(playerSelection, computerSelection, playerSelectionElement, computerSelectionElement);
 
     const roundResult = compareSelections(playerSelection, computerSelection);
 
@@ -82,6 +92,9 @@ function playRound(playerSelection)
                 playerSelection.substring(1)} beats ${computerSelection}`
         
         playerScore.textContent = Number(playerScore.textContent) + 1;
+
+        playerSelectionElement.classList.toggle('win');
+        computerSelectionElement.classList.toggle('lose');
     }
     else if (roundResult === "lose")
     {
@@ -89,10 +102,15 @@ function playRound(playerSelection)
                 computerSelection.substring(1)} beats ${playerSelection}`;
 
         computerScore.textContent = Number(computerScore.textContent) + 1;
+
+        playerSelectionElement.classList.toggle('lose');
+        computerSelectionElement.classList.toggle('win');
     }
     else
     {
         results.textContent = `Draw! You both chose ${playerSelection}`;
+        playerSelectionElement.classList.toggle('draw');
+        computerSelectionElement.classList.toggle('draw');
     }
 
     // End the game and disable buttons after a player reaches 5 points
@@ -115,14 +133,10 @@ function determineGameResult(playerScore, computerScore)
         gameResult = `You win the game! Final score is ${playerScore} to ${computerScore}`;
         document.querySelector('#game-results').classList.toggle('win');
     }
-    else if (playerScore < computerScore)
+    else
     {
         gameResult = `You lose the game! Final score is ${playerScore} to ${computerScore}`;
         document.querySelector('#game-results').classList.toggle('lose');
-    }
-    else
-    {
-        gameResult = `The game ended in a draw! Final score is ${playerScore} to ${computerScore}`
     }
 
     return gameResult;
