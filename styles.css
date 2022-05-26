@@ -6,7 +6,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background-color: #F3E5DF;
-  font-size: 40px;
+  font-size: 38px;
   padding: 16px;
 }
 
@@ -28,6 +28,12 @@ body {
 #scores-section,
 #display-selections-section {
   padding: 0px;
+}
+
+/* Round Section */
+
+#round-container {
+  text-align: center;
 }
 
 /* Names Section */
@@ -74,7 +80,7 @@ p {
 #results-section {
   display: flex;
   justify-content: center;
-  margin: 24px 0;
+  margin: 24px 0 8px 0;
 }
 
 /* Selections section */

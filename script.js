@@ -81,6 +81,9 @@ function playRound(playerSelection)
     const gameResult = document.querySelector('#game-results');
     const playerSelectionElement = document.querySelector('#player-selection');
     const computerSelectionElement = document.querySelector('#computer-selection');
+    const numberOfRounds = document.querySelector('#round');
+
+    numberOfRounds.textContent = Number(numberOfRounds.textContent) + 1;
 
     displaySelections(playerSelection, computerSelection, playerSelectionElement, computerSelectionElement);
 
