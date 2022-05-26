@@ -86,6 +86,12 @@ function playRound(playerSelection)
 
     const roundResult = compareSelections(playerSelection, computerSelection);
 
+    results.classList.remove('win');
+    results.classList.remove('lose');
+    results.classList.remove('draw');
+
+    gameResult.textContent = "";
+
     if (roundResult === "win")
     {
         results.textContent = `You win! ${playerSelection.charAt(0).toUpperCase() +
@@ -95,6 +101,7 @@ function playRound(playerSelection)
 
         playerSelectionElement.classList.toggle('win');
         computerSelectionElement.classList.toggle('lose');
+        results.classList.toggle('win');
     }
     else if (roundResult === "lose")
     {
@@ -105,12 +112,14 @@ function playRound(playerSelection)
 
         playerSelectionElement.classList.toggle('lose');
         computerSelectionElement.classList.toggle('win');
+        results.classList.toggle('lose');
     }
     else
     {
         results.textContent = `Draw! You both chose ${playerSelection}`;
         playerSelectionElement.classList.toggle('draw');
         computerSelectionElement.classList.toggle('draw');
+        results.classList.toggle('draw');
     }
 
     // End the game and disable buttons after a player reaches 5 points
